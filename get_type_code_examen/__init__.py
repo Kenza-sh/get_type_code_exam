@@ -135,6 +135,8 @@ class ExamenFetcher:
       actes = self.fetch_examens([id])
       code_exam = self.get_class(texte, actes)
       code_exam_id = next((k for k, v in actes.items() if v == code_exam), None)
+      if code_exam=='None':
+         code_exam= None
       logging.info(f"Résultat final: Type {type_exam}, ID {id}, Code Examen {code_exam}, Exam Code {code_exam_id}")
       return type_exam,id, code_exam , code_exam_id
 
